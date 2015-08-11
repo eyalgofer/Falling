@@ -1,0 +1,81 @@
+<!doctype html>
+
+<script src="jquery-1.11.3.js"></script>
+<head>
+<style>
+    .scoreBoard{
+        border: 1px solid black;
+        width: 200px;
+        height: 200px;
+        margin-left: 300px;
+        margin-top: 50px;
+    }
+
+</style>
+</head>
+
+<body>
+<table>
+    <tr>
+      <div class="scoreBoard"><lable id="score">asdasd</lable></div>
+    </tr>
+</table>
+<script>
+
+    var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    function randomNumber(max) {
+
+        var randomNum       = Math.random();
+        var numExpanded     = randomNum * max;
+        var numFloored      = Math.floor(numExpanded);
+
+        return numFloored;
+    }
+    //create a function returning a random letter
+    function randomLetter() {
+
+        var random0to25     = randomNumber(letters.length);
+        var randomLetter    = letters.charAt(random0to25);
+
+        return randomLetter;
+    }
+    //create a function creating a span containing a random letter and attaching it to body
+    function createLetter() {
+
+        var span            = $("<span/>");
+        span.css("position", "absolute");
+        span.css("top", 0);
+        randomPercent       = randomNumber(100)+"%";    //concatenation
+        span.css("left", randomPercent);
+        span.text(randomLetter())
+
+        span.appendTo("body");
+
+        return span;
+    }
+    //explain how to animate an element
+    function makeLetterFall() {
+        var letterElement = createLetter();
+        letterElement.animate({"top":"120%"}, 5000,scoreBoard());     //any ideas how not to use {} here?
+    }
+    //handle keyup, find a letter and remove it
+    function removeTypedLetter(pressedKey) {
+
+        var typedLetter     = String.fromCharCode(pressedKey.keyCode);
+        var letterElement  = $("span:contains("+typedLetter+")").first();
+
+        letterElement.remove();
+    }
+    function scoreBoard() {
+
+
+
+    }
+    $(document).on("keyup", removeTypedLetter);
+    //make a new letter every second
+    setInterval(makeLetterFall, 1000);
+
+</script>
+
+</body>
+</html>
