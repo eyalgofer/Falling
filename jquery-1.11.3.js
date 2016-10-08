@@ -12,7 +12,7 @@
  * Date: 2015-04-28T16:19Z
  */
 
-(function( global, factory ) {
+(function( global, factory ) { 4
 
 	if ( typeof module === "object" && typeof module.exports === "object" ) {
 		// For CommonJS and CommonJS-like environments where a proper window is present,
