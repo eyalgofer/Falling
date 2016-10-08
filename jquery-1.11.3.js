@@ -10,7 +10,7 @@
  * http://jquery.org/license
  *
  * Date: 2015-04-28T16:19Z
- */number 3 change
+s */number 3 change
  5n
 (function( global, factory ) {
 
