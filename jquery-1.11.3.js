@@ -30,7 +30,7 @@ s */number 3 change
 				}
 				return factory( w );
 			};
-	} else {a
+	} else {aw
 		factory( global );
 	}
 
